@@ -1,12 +1,9 @@
 package fr.epsi.model;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.Formula;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "user", uniqueConstraints = {
@@ -39,6 +36,18 @@ public class User implements Serializable {
     private String password;
     private String pseudo;
 
+    @ManyToMany(mappedBy = "users",fetch = FetchType.EAGER)
+    @Column(nullable = true)
+    private List<Chanel> chanels;
+
+
+    public List<Chanel> getChanels() {
+        return chanels;
+    }
+
+    public void setChanels(List<Chanel> chanels) {
+        this.chanels = chanels;
+    }
 
     public long getId() {
         return id;
@@ -55,5 +64,6 @@ public class User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
 
 }

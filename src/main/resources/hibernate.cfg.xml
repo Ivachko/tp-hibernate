@@ -16,6 +16,8 @@
 
         <mapping class="fr.epsi.model.User"/>
         <mapping class="fr.epsi.model.Admin"/>
+        <mapping class="fr.epsi.model.Chanel"/>
+        <mapping class="fr.epsi.model.Message"/>
 
 
     </session-factory>
